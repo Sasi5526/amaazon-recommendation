@@ -168,7 +168,7 @@ def login():
     most_popular_table()
     top_sell_table()
     
-    cust_name = str(request.args.get('name')).upper()
+    cust_name = str(request.args.get('name'))
     
     if cust_name in cust_prod_ranking_model['user_id'].unique():
         cust_most_popular_table(cust_name)
@@ -181,7 +181,7 @@ def login():
     
 @app.route("/view")
 def view():
-    prod_name = str(request.args.get('prod')).upper()
+    prod_name = str(request.args.get('prod'))
     
     if prod_name in prod_ranking_model['product_name'].unique():
         prod_price = similar_prods(prod_name)
