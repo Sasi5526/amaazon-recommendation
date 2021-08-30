@@ -112,7 +112,7 @@ def recommend_prod_cust(cust_name):
     # ignore the products already purchased by the input customer
     # merge prod_by_similar_custs and customer purchased products and drop the rows with No_of_orders being Not Null
     input_cust_top_sell_prods = cust_prod_ranking_model[cust_prod_ranking_model['user_id'] == cust_name]
-    df_merge = pd.merge(prod_by_similar_custs,input_cust_top_sell_prods[['product_name','No_of_Orders']],how='left',on='prouct_name')
+    df_merge = pd.merge(prod_by_similar_custs,input_cust_top_sell_prods[['product_name','No_of_Orders']],how='left',on='product_name')
     prod_recommend_to_cust = df_merge[df_merge['No_of_Orders'].isnull()]
     
     # sort the dataframe on Qty_Corr
